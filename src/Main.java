@@ -7,13 +7,12 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<Degree> namelist = new ArrayList<>();
         ArrayList<Education> educationlist = new ArrayList<>();
-        ArrayList<ArrayList> allEducationList = new ArrayList<>();
+        //ArrayList<ArrayList> allEducationList = new ArrayList<>();
         ArrayList<Skills> allSkills = new ArrayList<>();
 
+
         Degree personalInfo = new Degree();
-        Education educationinfo = new Education();
-        Skills skill = new Skills();
-        ResumeDB resume = new ResumeDB();
+        //ResumeDB resume = new ResumeDB();
         Scanner k = new Scanner(System.in);
         System.out.println("name: ");
         String userName = k.next();
@@ -24,6 +23,7 @@ public class Main {
         namelist.add(personalInfo);
         int count = 1;
         do {
+            Education educationinfo = new Education();
             System.out.println("degree type: ");
             String edu = k.next();
             educationinfo.setEducationType(edu);
@@ -37,46 +37,49 @@ public class Main {
             String gradYear = k.next();
             educationinfo.setGradYear(gradYear);
             educationlist.add(educationinfo);
-            allEducationList.add(educationlist);
+            //educationList.add(educationlist);
             System.out.println("would you like to add another degree? (y/n) ");
             String answer = k.next();
-            if(answer.equalsIgnoreCase("y")){
-                count ++;
+            if (answer.equalsIgnoreCase("y")) {
+                count++;
             }
-            if(answer.equalsIgnoreCase("n")){
+            if (answer.equalsIgnoreCase("n")) {
                 break;
             }
-        }while(count>1);
+        } while (count > 1);
 
-        ArrayList<Experience> eduList =  new ArrayList<>();
-        Experience personEdu = new Experience();
+        ArrayList<Experience> workList = new ArrayList<>();
+
 
         do {
+            Experience personWork = new Experience();
             System.out.println("Company Name: ");
             String workExp = k.next();
-            personEdu.setCompany(workExp);
+            personWork.setCompany(workExp);
             System.out.println("Job Title: ");
             String jobTitle = k.next();
-            personEdu.setJobTitle(jobTitle);
+            personWork.setJobTitle(jobTitle);
             System.out.println("Start Date: ");
             String startDate = k.next();
-            personEdu.setStartdate(startDate);
+            personWork.setStartdate(startDate);
             System.out.println("End Date: ");
             String endDate = k.next();
-            personEdu.setEndDate(endDate);
+            personWork.setEndDate(endDate);
             System.out.println("Job Description: ");
             String jobDesc = k.next();
-            personEdu.setDescription(jobDesc);
-            eduList.add(personEdu);
+            personWork.setDescription(jobDesc);
+            workList.add(personWork);
             System.out.println("would you like to add another job exprience? (y/n)");
             String ans = k.next();
-            if(ans.equalsIgnoreCase("y")){
-                count ++;
+            if (ans.equalsIgnoreCase("y")) {
+                count++;
+            } else {
+                break;
             }
-            else{break;}
-        }while (count>1);
+        } while (count > 1);
 
-        for(int i=0 ; i<3 ; i++) {
+        for (int i = 0; i < 3; i++) {
+            Skills skill = new Skills();
             System.out.println("please enter 3 skills: ");
             System.out.println("skills: ");
             String sk = k.next();
@@ -85,13 +88,22 @@ public class Main {
             String pr = k.next();
             skill.setRating(pr);
             allSkills.add(skill);
-
         }
-        personalInfo.displayPersonalText(allEducationList);
 
-        personEdu.expDsiplay(eduList);
-        skill.skillDisplay(allSkills);
 
+
+        for (Education education : educationlist) {
+            education.educationTextDisplay();
+        }
+
+        for (Experience e : workList){
+            e.expDsiplay();
+        }
+
+        for(Skills skill : allSkills) {
+            skill.skillDisplay();
+        }
+        //allSkills.skillDisplay(allSkills);
 
     }
 }

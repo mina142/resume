@@ -55,7 +55,7 @@ public class Experience {
     public void setDescription(String description) {
         this.description = description;
     }
-    public void expDsiplay(ArrayList array){
+    public void expDsiplay(){
         System.out.println(company);
         System.out.println(jobTitle);
         System.out.println(startdate);

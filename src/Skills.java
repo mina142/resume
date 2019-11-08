@@ -25,10 +25,7 @@ public class Skills {
         this.rating = rating;
     }
 
-    public void skillDisplay(ArrayList array) {
-        for (Object s : array) {
-            System.out.println(getRating());
-            System.out.println(getSkillName());
-        }
+    public void skillDisplay() {
+        System.out.println(this.skillName + "\n" + this.rating);
     }
 }

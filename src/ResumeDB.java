@@ -7,7 +7,7 @@ public class ResumeDB {
     public ResumeDB(ArrayList list){this.list = list;}
 
 
-        }
+}
 
 
 

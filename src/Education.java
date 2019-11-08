@@ -6,8 +6,6 @@ public class Education {
     private String uniName;
     private String gradYear;
 
-
-
     public Education(){}
     public Education(String educationType, String major, String uniName, String gradYear){
 
@@ -48,18 +46,13 @@ public class Education {
         this.gradYear = gradYear;
     }
 
-    public void educationTextDisplay(ArrayList education){
+    public void educationTextDisplay(){
+        System.out.println(educationType);
+        System.out.println(major);
+        System.out.println(uniName);
+        System.out.println(gradYear);
+    }
 
-        for(Object o :education) {
-
-            System.out.println("Education:");
-            System.out.println(getEducationType());
-            System.out.println(getMajor());
-            System.out.println(getUniName());
-            System.out.println(getGradYear() + "\n");
-
-        }
-        }
-        }
+}
 
 
